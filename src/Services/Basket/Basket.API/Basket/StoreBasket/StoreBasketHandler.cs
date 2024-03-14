@@ -12,11 +12,12 @@
         }
     }
 
-    internal class StoreBasketCommandHandler : ICommandHandler<StoreBasketCommand, StoreBasketResponse>
+    internal class StoreBasketCommandHandler(IBasketRepository repository) : ICommandHandler<StoreBasketCommand, StoreBasketResponse>
     {
-        public Task<StoreBasketResponse> Handle(StoreBasketCommand command, CancellationToken cancellationToken)
+        public async Task<StoreBasketResponse> Handle(StoreBasketCommand command, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var basket = await repository.StoreBasket(command.Cart, cancellationToken);
+            return new StoreBasketResponse(basket.UserName);
         }
     }
 }
