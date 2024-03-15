@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Name\":\"New product C\",\r\n    \"Category\":[\"c3\"],\r\n    \"Description\":\"Image Product A\",\r\n    \"Price\":200,\r\n    \"ImageFile\":\"png\"\r\n}",
+							"raw": "{\r\n    \"Name\":\"New product D\",\r\n    \"Category\":[\"c3\"],\r\n    \"Description\":\"Image Product D\",\r\n    \"Price\":200,\r\n    \"ImageFile\":\"png\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -56,7 +56,17 @@
 					"name": "Get Product by id",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{catalog_url}}/products/018e1561-5c51-4a5b-807a-57ac952aafcd",
+							"host": [
+								"{{catalog_url}}"
+							],
+							"path": [
+								"products",
+								"018e1561-5c51-4a5b-807a-57ac952aafcd"
+							]
+						}
 					},
 					"response": []
 				},
@@ -92,14 +102,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{catalog_url}}/products/category/c1",
+							"raw": "{{catalog_url}}/products/category/c3",
 							"host": [
 								"{{catalog_url}}"
 							],
 							"path": [
 								"products",
 								"category",
-								"c1"
+								"c3"
 							]
 						}
 					},
@@ -111,13 +121,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{catalog_url}}/products/018e1561-5c51-4a5b-807a-57ac952aafcd",
+							"raw": "{{catalog_url}}/products/018e18d5-3aab-4923-b17d-09b72cd56aec",
 							"host": [
 								"{{catalog_url}}"
 							],
 							"path": [
 								"products",
-								"018e1561-5c51-4a5b-807a-57ac952aafcd"
+								"018e18d5-3aab-4923-b17d-09b72cd56aec"
 							]
 						}
 					},
@@ -132,6 +142,90 @@
 							"raw": "{{catalog_url}}/health",
 							"host": [
 								"{{catalog_url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Basket",
+			"item": [
+				{
+					"name": "Store Basket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Cart\": {\r\n        \"UserName\":\"mra\",\r\n        \"Items\":[\r\n          {\r\n            \"Quantity\": 1,\r\n            \"Color\": \"red\",\r\n            \"Price\": 10,\r\n            \"Product\":\"018e253b-2754-4815-93da-108809185084\",\r\n            \"ProductName\":\"New product C\"\r\n          }\r\n        ]\r\n    }\r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basket_url}}/basket",
+							"host": [
+								"{{basket_url}}"
+							],
+							"path": [
+								"basket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Basket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basket_url}}/basket/mra",
+							"host": [
+								"{{basket_url}}"
+							],
+							"path": [
+								"basket",
+								"mra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete basket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basket_url}}/basket/mra",
+							"host": [
+								"{{basket_url}}"
+							],
+							"path": [
+								"basket",
+								"mra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basket_url}}/health",
+							"host": [
+								"{{basket_url}}"
 							],
 							"path": [
 								"health"

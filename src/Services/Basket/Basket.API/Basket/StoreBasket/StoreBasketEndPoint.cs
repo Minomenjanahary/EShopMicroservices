@@ -1,7 +1,7 @@
 ﻿namespace Basket.API.Basket.StoreBasket
 {
     public record StoreBasketRequest(ShoppingCart Cart);
-    public record StoreBasketRespone(string USerName);
+    public record StoreBasketRespone(string UserName);
 
     public class StoreBasketEndPoint : CarterModule
     {
